@@ -1,0 +1,21 @@
+﻿@using SmartStore.Santander
+@{
+    Html.SmartStore().Window()
+        .Name("santander-calculator-modal")
+        .Size(WindowSize.FlexSmall)
+        .RenderAtPageEnd(false)
+        .FooterContent(@<text><button class="btn btn-secondary btn-flat" data-dismiss="modal">@T("Common.Cancel")</button></text>)
+		.Render();
+}
+
+<script>
+	$(function () {
+        $(document).on('click', 'a.santander-calculator-button', function (e) {
+			e.preventDefault();
+            var html = '<iframe src="@Url.Action("Calculator", "Financing", new { area = SantanderPlugin.SystemName, price = "__price__" })" frameborder="0" class="santander-calculator-frame h-100" />';
+            var dialog = $('#santander-calculator-modal');
+			dialog.find('.modal-body').html(html.replace('__price__', $(this).attr('data-price')));
+			dialog.modal('show');
+        });
+	});
+</script>

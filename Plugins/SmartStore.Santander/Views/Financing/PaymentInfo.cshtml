@@ -1,0 +1,28 @@
+﻿@using SmartStore.Santander;
+@{
+    Layout = "";
+    var financeIdExists = (bool)ViewBag.FinanceIdExists;
+}
+<div>
+    <div class="mb-2">
+	    <img src="@Url.Content("~/Plugins/SmartStore.Santander/Content/branding.png")" />
+    </div>
+    <div class="media">
+	    <div class="media-body">
+            <div>
+		        @Html.Raw(T("Plugins.SmartStore.Santander.Financing.PaymentInfo"))
+            </div>
+            @if (financeIdExists)
+            {
+                <div class="mt-2">
+                    <div class="mb-2">
+                        @Html.Raw(T("Plugins.SmartStore.Santander.Financing.NewFinancingCalculation.Hint"))
+                    </div>
+                    <a href="@Url.Action("ResetFinanceId", "Financing", new { area = SantanderPlugin.SystemName })" class="btn btn-secondary btn-sm font-weight-600">
+                        @T("Plugins.SmartStore.Santander.Financing.NewFinancingCalculation")
+                    </a>
+                </div>
+            }
+	    </div>
+    </div>
+</div>

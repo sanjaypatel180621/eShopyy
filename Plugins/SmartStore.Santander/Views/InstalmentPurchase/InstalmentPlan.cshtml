@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+    var instalmentPdfUrl = (string)ViewBag.InstalmentPdfUrl;
+}
+<div class="card card-body order-review-data-box mb-3">
+    <div class="row">
+        <div class="col-md-12">
+			<div class="row">
+
+				<div class="col">
+					<div class="row sm-gutters">
+						<div class="col">
+							<div class="heading">
+								<h5 class="heading-title font-weight-medium">@T("Plugins.SmartStore.Santander.PreContractualInformation")</h5>
+							</div>
+						</div>
+					</div>
+					<div>
+                        <a href="@instalmentPdfUrl" rel="nofollow" download>@T("Plugins.SmartStore.Santander.InstalmentPurchase.PreContractualInformationDownload")</a>
+					</div>
+				</div>
+
+			</div>
+        </div>
+    </div>
+</div>

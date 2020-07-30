@@ -1,0 +1,237 @@
+﻿@using System.Globalization
+@using SmartStore.Santander.Models
+@model CalculatorModel
+@{
+    Layout = "";
+
+    var monthsStr = T("Plugins.SmartStore.Santander.Financing.Months").Text;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>@T("Plugins.SmartStore.Santander.Financing.FinancingCalculator")</title>
+
+    <style type="text/css">
+        body {
+            font-family: Arial,Helvetica,sans-serif;
+            font-size: 14px;
+            color: #444;
+        }
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.4em;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .caption {
+            font-size: 15px;
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+        input {
+            width: 86px;
+            height: 20px;
+            padding: 2px 5px;
+        }
+        select {
+            width: 98px;
+            height: 26px;
+        }
+        input, select {
+            border-radius: 2px;
+            border: 1px solid #ced4da;
+            box-shadow: none;
+            background-clip: padding-box;
+        }
+        table {
+            width: 100%;
+            font-size: 14px;
+        }
+        table td {
+            white-space: nowrap;
+            height: 25px;
+        }
+        #wrapper {
+            background-color: #f7f7f9;
+        }
+        #content, #result {
+            border-bottom: 5px solid white;
+            clear: both;   
+            padding: 10px;
+        }
+        #disclaimer {
+            font-size: 0.75em;
+            padding: 10px;
+        }
+        #info-url {
+            padding: 10px;
+        }
+        #error {
+            color: #ff0000;
+            display: none;
+        }
+    </style>
+	<script>
+        var effzins = new Array();
+        var faktor = new Array();
+
+        @for (var i = 0; i < Model.Data.Interests.Count; ++i)
+        {
+            var interest = Model.Data.Interests[i];
+            <text>effzins[@i] = @(interest.Interest.ToString("0.00", CultureInfo.InvariantCulture));</text>
+            <text>faktor[@i] = @(interest.Factor.ToString(CultureInfo.InvariantCulture));</text>
+        }
+
+        function Runden2Dezimal(x, stellen) {
+            rundungsfaktor = Math.pow(10, stellen);
+            Ergebnis = Math.round(x * rundungsfaktor) / rundungsfaktor;
+            return Ergebnis;
+        }
+
+        function calcSollzins(effzins) {
+            Ergebnis = (Math.pow((1 + effzins / 100), (1 / 12)) - 1) * 100;
+            Ergebnis = Ergebnis * 12
+            return Runden2Dezimal(Ergebnis, 3);
+        }
+
+        function calc() {
+            // Hole Laufzeit Index + Laufzeit aus Dropdown Menu
+            var e = document.getElementById("laufzeit");
+            var laufzeitindex = e.options[e.selectedIndex].value;
+            var laufzeit = e.options[e.selectedIndex].text.replace('Monate', '');
+            var nettodarlehensbetrag = parseFloat(document.getElementById("volume").value.replace(',', '.'));
+
+            if (isNaN(nettodarlehensbetrag)) {
+                // Ausgabe Fehlermeldung
+                document.getElementById("error").style.display = "block";
+
+                //ggf. vorherige Berechnungsergebnisse zuruecksetzen
+                document.getElementById("nettoBetrag").value = "";
+                document.getElementById("zinsBetrag").value = "";
+                document.getElementById("hoeheRaten").value = "";
+                document.getElementById("anzRaten").innerHTML = "0";
+                document.getElementById("bruttoBetrag").value = "";
+                document.getElementById("sollZins").value = "";
+                document.getElementById("effZins").value = "";
+            }
+            else {
+                //eine vorher ggf. eingeblendete Fehlermeldung wieder ausblenden
+                document.getElementById("error").style.display = "none";
+
+                // Berechnungen
+                var rate = Runden2Dezimal(nettodarlehensbetrag * faktor[laufzeitindex], 2);
+
+                var gesamt
+                if (effzins[laufzeitindex] == 0.00) gesamt = nettodarlehensbetrag;
+                else gesamt = Runden2Dezimal(laufzeit * rate, 2);
+
+                var zinssumme
+                if (effzins[laufzeitindex] == 0.00) zinssumme = 0;
+                else zinssumme = Runden2Dezimal(gesamt - nettodarlehensbetrag, 2);
+
+                //Ausgabe Berechnungsergebnisse
+                document.getElementById("nettoBetrag").value = nettodarlehensbetrag.toFixed(2).toString().replace('.', ',');
+                document.getElementById("zinsBetrag").value = zinssumme.toFixed(2).toString().replace('.', ',');
+                document.getElementById("hoeheRaten").value = rate.toFixed(2).toString().replace('.', ',');
+                document.getElementById("anzRaten").innerHTML = laufzeit;
+                document.getElementById("bruttoBetrag").value = gesamt.toFixed(2).toString().replace('.', ',');
+                document.getElementById("sollZins").value = calcSollzins(effzins[laufzeitindex]).toFixed(2).toString().replace('.', ',');
+                document.getElementById("effZins").value = effzins[laufzeitindex].toFixed(2).toString().replace('.', ',');
+            }
+        }
+
+        function navigate(obj) {
+            window.parent.location.href = obj.href;
+        }
+	</script>
+</head>
+
+<body id="santander-calculator" onload="calc()">
+    <div class="title">       
+        <div>@T("Plugins.SmartStore.Santander.Financing.FinancingCalculator")</div>
+        <div><img src="@Url.Content("~/Plugins/SmartStore.Santander/Content/branding.png")" alt="Santander Consumer Bank" /></div>        
+    </div>
+    <div id="wrapper">
+        <div id="content">
+            <table>
+                <tr>
+                    <td style="width: 240px;">@T("Plugins.SmartStore.Santander.Financing.FinancingValue"):</td>
+                    <td>
+                        <input type="text" accept="text/html" id="volume" onchange="calc()" value="@Model.Price.ToString("N2")">&nbsp;@Model.CurrencySymbol
+                    </td>
+                </tr>
+                <tr>
+                    <td>@T("Plugins.SmartStore.Santander.Financing.Term"):</td>
+                    <td>
+                        <select size="1" id="laufzeit" onchange="calc()">
+                            @for (var i = 0; i < Model.Data.Interests.Count; ++i)
+                            {
+                                var months = Model.Data.Interests[i].Months;
+                                <option value="@i" @Html.Attr("selected", "selected", months == Model.DefaultTerm)>@(monthsStr.FormatInvariant(months))</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div id="error">@T("Plugins.SmartStore.Santander.Financing.InvalidFinancingValue")</div>
+        </div>
+        <div id="result">
+            <table>
+                <tr>
+                    <td colspan="2" class="caption">
+                        @T("Plugins.SmartStore.Santander.Financing.FinancingDetails")
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 240px;">@T("Plugins.SmartStore.Santander.Financing.NetLoanAmount"):</td>
+                    <td>
+                        <input type="text" id="nettoBetrag" readonly="readonly">&nbsp;@Model.CurrencySymbol
+                    </td>
+                </tr>
+                <tr>
+                    <td>@T("Plugins.SmartStore.Santander.Interest")*:</td>
+                    <td>
+                        <input type="text" id="zinsBetrag" readonly="readonly">&nbsp;@Model.CurrencySymbol
+                    </td>
+                </tr>
+                <tr>
+                    <td><span id="anzRaten">0</span> @T("Plugins.SmartStore.Santander.Financing.Instalments"):</td>
+                    <td>
+                        <input type="text" id="hoeheRaten" readonly="readonly">&nbsp;@Model.CurrencySymbol
+                    </td>
+                </tr>
+                <tr>
+                    <td>@T("Plugins.SmartStore.Santander.TotalAmount"):</td>
+                    <td>
+                        <input type="text" id="bruttoBetrag" readonly="readonly">&nbsp;@Model.CurrencySymbol
+                    </td>
+                </tr>
+                <tr>
+                    <td>@T("Plugins.SmartStore.Santander.Financing.FixedDebitInterestRate"):</td>
+                    <td>
+                        <input type="text" id="sollZins" readonly="readonly">&nbsp;%
+                    </td>
+                </tr>
+                <tr>
+                    <td>@T("Plugins.SmartStore.Santander.Financing.AnnualPercentageChargeRate"):</td>
+                    <td>
+                        <input type="text" id="effZins" readonly="readonly">&nbsp;%
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="disclaimer">
+            <p>@Html.Raw(@T("Plugins.SmartStore.Santander.Financing.CalculatorDisclaimer"))</p>
+        </div>
+        @if (Model.InfoUrl.HasValue())
+        {
+            <div id="info-url">
+                @Html.Raw(T("Plugins.SmartStore.Santander.Financing.CalculatorInfoUrlDescription").Text.FormatInvariant(Model.InfoUrl))
+            </div>
+        }
+    </div>
+</body>

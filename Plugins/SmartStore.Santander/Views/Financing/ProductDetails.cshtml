@@ -1,0 +1,21 @@
+﻿@using System.Globalization
+@{
+    Layout = "";
+    var financingTitle = ViewBag.SantanderFinancingTitle as string;
+    var price = (decimal)ViewBag.SantanderFinancingPrice;
+}
+<div class="santander-financing mt-2">
+    @if (financingTitle.HasValue())
+    {
+        <div class="santander-financing-title font-weight-bold mb-1">
+            @Html.Raw(financingTitle)
+        </div>
+    }
+    <div class="santander-financing-description">
+        @Html.Raw(T("Plugins.SmartStore.Santander.Financing.ProductDetailsDescription"))
+    </div>
+    <a href="javascript:void(0)" rel="nofollow" class="santander-calculator-button btn btn-sm btn-secondary mt-2" data-price="@(price.ToString(CultureInfo.InvariantCulture))">
+        <i class="far fa-file-alt"></i>
+        <span>@T("Plugins.SmartStore.Santander.Financing.ProductDetailsButton")</span>
+    </a>
+</div>

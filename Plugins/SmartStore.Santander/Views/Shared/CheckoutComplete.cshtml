@@ -1,0 +1,34 @@
+﻿@using SmartStore.Web.Framework;
+@using SmartStore.Santander.Models;
+@model CheckoutCompleteModel
+<div class="card shadow-sm text-left mt-4 mb-3">
+    <div class="card-body">
+        <h4 class="card-title mb-4">
+            @Html.Raw(Model.Description)
+        </h4>
+
+        <dl class="bank-account row">
+            <dt class="col-sm-3 font-weight-medium text-muted">@T("Plugins.SmartStore.Santander.Payee"):</dt>
+            <dd class="col-sm-9">@Model.Payee.NaIfEmpty()</dd>
+                                        
+            <dt class="col-sm-3 font-weight-medium text-muted">@T("Plugins.SmartStore.Santander.BankCountry"):</dt>
+            <dd class="col-sm-9">@Model.BankCountry.NaIfEmpty()</dd>
+                    
+            <dt class="col-sm-3 font-weight-medium text-muted">@T("Plugins.SmartStore.Santander.Iban"):</dt>
+            <dd class="col-sm-9">@Model.Iban.NaIfEmpty()</dd>
+                    
+            <dt class="col-sm-3 font-weight-medium text-muted">@T("Plugins.SmartStore.Santander.Bic"):</dt>
+            <dd class="col-sm-9">@Model.Bic.NaIfEmpty()</dd>
+                    
+            <dt class="col-sm-3 font-weight-medium text-muted">@T("Plugins.SmartStore.Santander.IntendedPurpose"):</dt>
+            <dd class="col-sm-9"><strong>@Model.IntendedPurpose.NaIfEmpty()</strong></dd>
+        </dl>
+    </div>
+</div>
+
+@if (Model.Note.HasValue())
+{
+    <div class="alert alert-warning text-left">
+        @Html.Raw(Model.Note)
+    </div>
+}

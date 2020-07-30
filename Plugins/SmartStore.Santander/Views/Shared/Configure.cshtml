@@ -1,0 +1,258 @@
+﻿@using SmartStore.Web.Framework;
+@using SmartStore.Santander;
+@using SmartStore.Santander.Models;
+@model ConfigurationModel
+@{
+	Layout = "";
+
+    var isFinancing = Model.ProviderSystemName.IsCaseInsensitiveEqual(WebQuickFinancingProvider.SystemName);
+}
+
+<div class="plugin-actions">
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-warning" value="save">
+		<i class="fa fa-check"></i>
+		<span>@T("Admin.Common.Save")</span>
+	</button>
+</div>
+
+<div class="plugin-configuration">
+	<div>
+		<div class="alert alert-info alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			@Html.Raw(@T("Plugins.SmartStore.Santander.AdminInstruction"))
+		</div>
+	</div>
+	<div class="mb-3">
+		<a href="https://www.santander.de/" target="_blank">
+			<img src="@Url.Content("~/Plugins/SmartStore.Santander/Content/branding.png")" />
+		</a>
+	</div>
+</div>
+
+@{ Html.RenderAction("StoreScopeConfiguration", "Setting", new { area = "Admin" }); }
+
+@Html.ValidationSummary(false)
+
+@using (Html.BeginForm())
+{
+	<table id="SantanderConfiguration" class="adminContent">
+		<tr class="adminSeparator">
+			<td colspan="2">
+				<div class="admin-config-group">
+					<div class="head">
+						@T("Plugins.SmartStore.Santander.AccessData")
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.UseSandbox)
+			</td>
+			<td class="adminData">
+				@Html.SettingEditorFor(x => x.UseSandbox)
+				@Html.ValidationMessageFor(x => x.UseSandbox)
+			</td>
+		</tr>
+		<tr class="@(isFinancing ? "" : "d-none")">
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.WebQuickSandboxUrl)
+			</td>
+			<td class="adminData wide">
+				@Html.SettingEditorFor(x => x.WebQuickSandboxUrl)
+				@Html.ValidationMessageFor(x => x.WebQuickSandboxUrl)
+			</td>
+		</tr>
+		<tr class="@(isFinancing ? "" : "d-none")">
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.WebQuickProductionUrl)
+			</td>
+			<td class="adminData wide">
+				@Html.SettingEditorFor(x => x.WebQuickProductionUrl)
+				@Html.ValidationMessageFor(x => x.WebQuickProductionUrl)
+			</td>
+		</tr>
+		<tr>
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.MerchantId)
+			</td>
+			<td class="adminData">
+				@Html.SettingEditorFor(x => x.MerchantId, null, new { htmlAttributes = new { autocomplete = "new-password" } })
+				@Html.ValidationMessageFor(x => x.MerchantId)
+			</td>
+		</tr>
+		<tr>
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.MerchantPassword)
+			</td>
+			<td class="adminData">
+				@Html.SettingEditorFor(x => x.MerchantPassword, null, new { htmlAttributes = new { autocomplete = "new-password", value = Model.MerchantPassword } })
+				@Html.ValidationMessageFor(x => x.MerchantPassword)
+			</td>
+		</tr>
+		<tr class="@(isFinancing ? "d-none" : "")">
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.Sender)
+			</td>
+			<td class="adminData">
+				@Html.SettingEditorFor(x => x.Sender)
+				@Html.ValidationMessageFor(x => x.Sender)
+			</td>
+		</tr>
+		<tr class="@(isFinancing ? "d-none" : "")">
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.Channel)
+			</td>
+			<td class="adminData">
+				@Html.SettingEditorFor(x => x.Channel)
+				@Html.ValidationMessageFor(x => x.Channel)
+			</td>
+		</tr>
+
+		<tr class="adminSeparator">
+			<td colspan="2">
+				<div class="admin-config-group">
+					<div class="title">
+						@T("Plugins.SmartStore.Santander.OtherOptions")
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.OrderAmountMin)
+			</td>
+			<td class="adminData">
+				@Html.SettingEditorFor(x => x.OrderAmountMin, null, new { postfix = Model.PrimaryStoreCurrencyCode })
+				@Html.ValidationMessageFor(x => x.OrderAmountMin)
+			</td>
+		</tr>
+		<tr>
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.OrderAmountMax)
+			</td>
+			<td class="adminData">
+				@Html.SettingEditorFor(x => x.OrderAmountMax, null, new { postfix = Model.PrimaryStoreCurrencyCode })
+				@Html.ValidationMessageFor(x => x.OrderAmountMax)
+			</td>
+		</tr>
+		<tr>
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.AddOrderNotes)
+			</td>
+			<td class="adminData">
+				@Html.SettingEditorFor(x => x.AddOrderNotes)
+				@Html.ValidationMessageFor(x => x.AddOrderNotes)
+			</td>
+		</tr>
+		<tr>
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.AdditionalFee)
+			</td>
+			<td class="adminData">
+				@Html.SettingEditorFor(x => x.AdditionalFee, null, new { postfix = Model.PrimaryStoreCurrencyCode })
+				@Html.ValidationMessageFor(x => x.AdditionalFee)
+			</td>
+		</tr>
+		<tr>
+			<td class="adminTitle">
+				@Html.SmartLabelFor(x => x.AdditionalFeePercentage)
+			</td>
+			<td class="adminData">
+				@Html.SettingEditorFor(x => x.AdditionalFeePercentage)
+				@Html.ValidationMessageFor(x => x.AdditionalFeePercentage)
+			</td>
+		</tr>
+
+        <tbody class="@(isFinancing ? "" : "d-none")">
+		    <tr class="adminSeparator">
+			    <td colspan="2">
+				    <div class="admin-config-group">
+					    <div class="title">
+						    @T("Plugins.SmartStore.Santander.Financing.FinancingCalculator")
+					    </div>
+				    </div>
+			    </td>
+		    </tr>
+            <tr>
+                <td class="adminTitle">
+                    @Html.SmartLabelFor(x => x.DisplayCalculatorOnProductPage)
+                </td>
+                <td class="adminData">
+                    @Html.SettingEditorFor(x => x.DisplayCalculatorOnProductPage)
+                    @Html.ValidationMessageFor(x => x.DisplayCalculatorOnProductPage)
+                </td>
+            </tr>
+            <tr>
+                <td class="adminTitle">
+                    @Html.SmartLabelFor(x => x.DisplayCalculatorInLists)
+                </td>
+                <td class="adminData">
+                    @Html.SettingEditorFor(x => x.DisplayCalculatorInLists)
+                    @Html.ValidationMessageFor(x => x.DisplayCalculatorInLists)
+                </td>
+            </tr>
+            <tbody class="calculator">
+                <tr>
+                    <td class="adminTitle">
+                        @Html.SmartLabelFor(x => x.CalculatorInfoUrl)
+                    </td>
+                    <td class="adminData">
+                        @Html.SettingEditorFor(x => x.CalculatorInfoUrl)
+                        @Html.ValidationMessageFor(x => x.CalculatorInfoUrl)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="adminTitle">
+                        @Html.SmartLabelFor(x => x.CalculatorMinAmount)
+                    </td>
+                    <td class="adminData">
+                        @Html.SettingEditorFor(x => x.CalculatorMinAmount, null, new { postfix = Model.PrimaryStoreCurrencyCode })
+                        @Html.ValidationMessageFor(x => x.CalculatorMinAmount)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="adminTitle">
+                        @Html.SmartLabelFor(x => x.CalculatorDefaultTerm)
+                    </td>
+                    <td class="adminData">
+                        @Html.SettingEditorFor(x => x.CalculatorDefaultTerm, null, new { postfix = T("Time.Months") })
+                        @Html.ValidationMessageFor(x => x.CalculatorDefaultTerm)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="adminTitle">
+                        @Html.SmartLabelFor(x => x.CalculatorInterests)
+                    </td>
+                    <td class="adminData">
+                        @Html.SettingEditorFor(x => x.CalculatorInterests, Html.TextAreaFor(x => x.CalculatorInterests, new { style = "height: 190px;" }))
+                        @Html.ValidationMessageFor(x => x.CalculatorInterests)
+                    </td>
+                </tr>
+		        <tr>
+			        <td class="adminTitle"></td>
+			        <td class="adminData">
+				        <div class="alert alert-info">
+					        @Html.Raw(T("Plugins.SmartStore.Santander.Financing.CalculatorInterestsInstruction"))
+				        </div>
+			        </td>
+		        </tr>
+            </tbody>
+        </tbody>
+	</table>
+}
+
+<script>
+    $(function () {
+        $('#@Html.FieldIdFor(x => x.DisplayCalculatorOnProductPage), #@Html.FieldIdFor(x => x.DisplayCalculatorInLists)').change(function () {
+            var display = $('#@Html.FieldIdFor(x => x.DisplayCalculatorOnProductPage)').is(':checked') || $('#@Html.FieldIdFor(x => x.DisplayCalculatorInLists)').is(':checked');
+            var item = $('#SantanderConfiguration').find('.calculator');
+            if (display) {
+                item.show(200);
+            }
+            else {
+                item.hide(100);
+            }
+		}).trigger('change');
+    });
+</script>

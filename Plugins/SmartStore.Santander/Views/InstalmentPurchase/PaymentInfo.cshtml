@@ -1,0 +1,36 @@
+﻿@using SmartStore.Web.Framework;
+@using SmartStore.Santander.Models;
+@model InstalmentPurchasePaymentInfoModel
+@{
+    Layout = "";
+}
+<div class="opt-form">
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Salutation, new { @class = "col-md-3 col-form-label required pt-0" })
+        <div class="col-md-9">
+			<div class="form-inline">
+				<div class="form-check form-check-inline">
+					@Html.RadioButton("Salutation", "MR", (Model.Salutation.IsCaseInsensitiveEqual("MR")), new { @class = "form-check-input", id = "salutation-mr" })
+					<label for="salutation-mr" class="form-check-label">@T("Admin.Address.Salutation.Mr")</label>
+				</div>
+				<div class="form-check form-check-inline">
+					@Html.RadioButton("Salutation", "MRS", (Model.Salutation.IsCaseInsensitiveEqual("MRS")), new { @class = "form-check-input", id = "salutation-mrs" })
+					<label for="salutation-mrs" class="form-check-label">@T("Admin.Address.Salutation.Mrs")</label>
+				</div>
+			</div>
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.DateOfBirthYear, new { @class = "col-md-3 col-form-label required" })
+        <div class="col-md-9">
+            @Html.DatePickerDropDowns(Html.FieldNameFor(x => x.DateOfBirthDay),
+                 Html.FieldNameFor(x => x.DateOfBirthMonth),
+                 Html.FieldNameFor(x => x.DateOfBirthYear),
+                 DateTime.Now.Year - 100,
+                 DateTime.Now.Year,
+                 Model.DateOfBirthDay,
+                 Model.DateOfBirthMonth,
+                 Model.DateOfBirthYear)
+        </div>
+    </div>
+</div>

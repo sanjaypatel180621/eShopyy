@@ -1,0 +1,400 @@
+﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
+	<LocaleResource Name="Plugins.FriendlyName.SmartStore.Santander" AppendRootKey="false">
+		<Value>Santander</Value>
+	</LocaleResource>
+	<LocaleResource Name="Plugins.Description.SmartStore.Santander" AppendRootKey="false">
+		<Value>Stellt die Zahlarten der Santander Consumer Bank AG zur Verfügung.</Value>
+	</LocaleResource>
+    <LocaleResource Name="Plugins.FriendlyName.Widgets.Santander" AppendRootKey="false">
+        <Value>Santander</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Plugins.FriendlyName.Payments.SantanderWebQuickFinancing" AppendRootKey="false">
+		<Value>Finanzierung</Value>
+	</LocaleResource>
+	<LocaleResource Name="Plugins.Description.Payments.SantanderWebQuickFinancing" AppendRootKey="false">
+		<Value>Santander Finanzierung</Value>
+	</LocaleResource>
+    <LocaleResource Name="Plugins.FriendlyName.Payments.SantanderPurchaseOnAccount" AppendRootKey="false">
+        <Value>Rechnungskauf von Santander</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Description.Payments.SantanderPurchaseOnAccount" AppendRootKey="false">
+        <Value>Santander Rechnungskauf</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.FriendlyName.Payments.SantanderInstalmentPurchase" AppendRootKey="false">
+        <Value>Ratenkauf von Santander</Value>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.Description.Payments.SantanderInstalmentPurchase" AppendRootKey="false">
+        <Value>Santander Ratenkauf</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="PaymentImpossible">
+        <Value>Die von Ihnen gewählte Zahlungsart kann Ihnen leider nicht angeboten werden. Bitte wählen Sie eine andere Zahlungsart aus.</Value>
+    </LocaleResource>
+    <LocaleResource Name="PaymentStatusPolling">
+        <Value>Santander Zahlungsstatus abrufen</Value>
+    </LocaleResource>
+    <LocaleResource Name="NewPaymentStatus">
+        <Value>Neuer Zahlungsstatus {0}</Value>
+    </LocaleResource>
+    <LocaleResource Name="PreContractualInformation">
+        <Value>Vorvertragliche Informationen</Value>
+    </LocaleResource>
+    <LocaleResource Name="ErrorStatus">
+        <Value>Santander meldet den Fehlerstatus {0} für {1}.</Value>
+    </LocaleResource>
+    <LocaleResource Name="UnknownError">
+        <Value>Unbekannter Fehler</Value>
+    </LocaleResource>
+    <LocaleResource Name="LoginFailed">
+        <Value>Login fehlgeschlagen</Value>
+    </LocaleResource>
+    <LocaleResource Name="ShippingConfirmationSent">
+        <Value>An Santander wurde eine formlose Statusmeldung über den Versand der Ware übermittelt.</Value>
+    </LocaleResource>
+    <LocaleResource Name="MustBeAtLeast18YearsOld">
+        <Value>Zur Nutzung dieser Zahlart müssen Sie mindestens 18 Jahre alt sein.</Value>
+    </LocaleResource>
+    <LocaleResource Name="MustConsentDataPrivacy">
+        <Value>Bitte stimmen Sie der Übermittlung Ihrer personenbezogenen Daten zu.</Value>
+    </LocaleResource>
+    <LocaleResource Name="ApplicationNotCompleted">
+        <Value>Die Finanzierungsanfrage wurde noch nicht abgeschlossen. Bitte vervollständigen Sie die Eingabe.</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="AdvertisingNote">
+		<Value>
+			<![CDATA[Ich bin einverstanden, dass mich die Santander Consumer Bank AG und die Santander Consumer Leasing GmbH per E-Mail, telefonisch, per Brief oder per sonstiger elektronischer Kommunikationsdienste (SMS o.ä.) personalisiert über neue Services und interessante Produktangebote informieren können und stimme insoweit der Verarbeitung meiner personenbezogenen Daten zu (Details hierzu siehe <a href="https://applications.santander.de/applications/rechnungskauf/werbehinweise/" target="_blank">Santander Werbehinweise</a>). Dieses Einverständnis bezieht sich auf eigene und auf vermittelte Produkte und Services. Mir ist bewusst, dass ich dieses Einverständnis jederzeit widerrufen kann. Sie haben das Recht, auch ohne Einwilligung zulässiger Werbung jederzeit zu widersprechen (Details hierzu siehe <a href="https://applications.santander.de/applications/rechnungskauf/werbehinweise/" target="_blank">Santander Werbehinweise</a>, Ziffer III).]]>
+		</Value>
+	</LocaleResource>
+    <LocaleResource Name="DataPrivacyNote">
+		<Value>
+			<![CDATA[Ich willige in die Übermittlung meiner personenbezogenen Daten an die Santander Consumer Bank AG gemäß den näheren Bestimmungen des beigefügten <a href="https://www.santander.de/applications/rechnungskauf/datenschutzbestimmungen/" target="_blank">Einwilligungserklärungstextes</a> sowie an die darin genannten Auskunfteien und in die Durchführung einer automatisierten Entscheidung ein. Nähere Informationen finden Sie in den <a href="https://applications.santander.de/applications/rechnungskauf/datenschutzhinweise/" target="_blank">Datenschutzhinweisen</a> der Santander für den Rechnungs-/Ratenkauf.]]>
+		</Value>
+	</LocaleResource>
+    <LocaleResource Name="AdminInstruction">
+		<Value>
+			<![CDATA[<div>Bitte tragen Sie unten Ihre Santander Zugangsdaten ein. Noch kein Santander Händlerkonto? Dann melden Sie sich gerne telefonisch oder per E-Mail bei der Santander.</div>
+<div>Telefonnummer: 02161 906 0933</div><div>E-Mail: ecommerce@santander.de</div>]]>
+		</Value>
+	</LocaleResource>
+    <LocaleResource Name="AccessData">
+        <Value>Zugangsdaten</Value>
+    </LocaleResource>
+    <LocaleResource Name="OtherOptions">
+        <Value>Weitere Optionen</Value>
+    </LocaleResource>
+    <LocaleResource Name="Salutation">
+        <Value>Anrede</Value>
+    </LocaleResource>
+    <LocaleResource Name="DateOfBirth">
+        <Value>Geburtsdatum</Value>
+    </LocaleResource>
+    <LocaleResource Name="BankCountry">
+        <Value>Land</Value>
+    </LocaleResource>
+    <LocaleResource Name="Iban">
+        <Value>IBAN</Value>
+    </LocaleResource>
+    <LocaleResource Name="Bic">
+        <Value>BIC</Value>
+    </LocaleResource>
+    <LocaleResource Name="Payee">
+        <Value>Zahlungsempfänger</Value>
+    </LocaleResource>
+    <LocaleResource Name="IntendedPurpose">
+        <Value>Verwendungszweck</Value>
+    </LocaleResource>
+    <LocaleResource Name="CheckoutCompleteIntro">
+        <Value>Bitte überweisen Sie den fälligen Gesamtbetrag in Höhe von {0} auf folgendes Konto:</Value>
+    </LocaleResource>
+    <LocaleResource Name="CheckoutCompleteNote">
+        <Value>Bitte beachten Sie, dass wir nur Überweisungen mit korrektem Verwendungszweck berücksichtigen können!</Value>
+    </LocaleResource>
+    <LocaleResource Name="Shipping">
+        <Value>Versand</Value>
+    </LocaleResource>
+    <LocaleResource Name="Other">
+        <Value>Sonstiges</Value>
+    </LocaleResource>
+    <LocaleResource Name="AnswerFromSantander">
+        <Value>Antwort von Santander</Value>
+    </LocaleResource>
+    <LocaleResource Name="Interest">
+        <Value>Zinsen</Value>
+    </LocaleResource>
+    <LocaleResource Name="TotalAmount">
+        <Value>Gesamtbetrag</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="UseSandbox">
+		<Value>Testsystem benutzen</Value>
+	</LocaleResource>
+	<LocaleResource Name="UseSandbox.Hint">
+		<Value>Legt fest, ob das Testsystem genutzt werden soll.</Value>
+	</LocaleResource>
+    <LocaleResource Name="MerchantId">
+        <Value>Händlernummer</Value>
+    </LocaleResource>
+    <LocaleResource Name="MerchantId.Hint">
+        <Value>Legt die Santander Händlernummer fest.</Value>
+    </LocaleResource>
+    <LocaleResource Name="MerchantPassword">
+        <Value>Passwort</Value>
+    </LocaleResource>
+    <LocaleResource Name="MerchantPassword.Hint">
+        <Value>Legt das Santander Händler-Passwort fest.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Sender">
+        <Value>Sender ID</Value>
+    </LocaleResource>
+    <LocaleResource Name="Sender.Hint">
+        <Value>Legt die Sender ID des Händlers fest.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Channel">
+        <Value>Channel ID</Value>
+    </LocaleResource>
+    <LocaleResource Name="Channel.Hint">
+        <Value>Legt die Channel ID des Händlers fest.</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="AddOrderNotes">
+		<Value>Auftragsnotizen anlegen</Value>
+	</LocaleResource>
+	<LocaleResource Name="AddOrderNotes.Hint">
+		<Value>Legt fest, ob Auftragsnotizen hinsichtlich des Datenaustausches mit dem Zahlungsanbieter angelegt werden sollen.</Value>
+	</LocaleResource>
+    <LocaleResource Name="OrderAmountMin">
+        <Value>Mindestbestellwert</Value>
+    </LocaleResource>
+    <LocaleResource Name="OrderAmountMin.Hint">
+        <Value>Legt den Mindestbestellwert fest, ab dem die Zahlart angeboten werden soll.</Value>
+    </LocaleResource>
+    <LocaleResource Name="OrderAmountMax">
+        <Value>Maximalbestellwert</Value>
+    </LocaleResource>
+    <LocaleResource Name="OrderAmountMax.Hint">
+        <Value>Legt den Maximalestellwert fest, bis zu dem die Zahlart angeboten werden soll.</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Plugins.SmartStore.Santander.Financing" AppendRootKey="false">
+        <Children>
+            <LocaleResource Name="PaymentInfo">
+                <Value>
+                    <![CDATA[Finanzieren Sie Ihren Einkauf mit der Santander Consumer Bank AG – sicher – schnell – komfortabel. Einfach das gewünschte Finanzierungsangebot auswählen und Ihren individuellen Finanzierungsantrag erstellen lassen.]]>
+                </Value>
+            </LocaleResource>
+            <LocaleResource Name="NewFinancingCalculation">
+                <Value>Neue Finanzierungsberechnung</Value>
+            </LocaleResource>
+            <LocaleResource Name="NewFinancingCalculation.Hint">
+                <Value>
+                    <![CDATA[Eine Finanzierungsberechnung liegt bereits vor. Klicken Sie auf <b class="font-weight-medium">Neue Finanzierungsberechnung</b>, um eine neue Berechnung zu starten.]]>
+                </Value>
+            </LocaleResource>
+            <!--<LocaleResource Name="ApplicationNotApproved">
+                <Value>Der Santander Finanzierungsantrag wurde leider nicht genehmigt. Bitte achten Sie auf vollständige und korrekte Angaben beim Erstellen des Finanzierungsantrages oder wählen Sie eine andere Zahlart.</Value>
+            </LocaleResource>-->
+
+            <LocaleResource Name="WebQuickSandboxUrl">
+                <Value>WebQuick URL Testsystem</Value>
+            </LocaleResource>
+            <LocaleResource Name="WebQuickSandboxUrl.Hint">
+                <Value>Legt die WebQuick URL fürs Testsystem fest. Auf diese URL wird im Checkout weitergeleitet.</Value>
+            </LocaleResource>
+            <LocaleResource Name="WebQuickProductionUrl">
+                <Value>WebQuick URL Produktion</Value>
+            </LocaleResource>
+            <LocaleResource Name="WebQuickProductionUrl.Hint">
+                <Value>Legt die WebQuick URL für den Live-Betrieb fest. Auf diese URL wird im Checkout weitergeleitet.</Value>
+            </LocaleResource>
+
+            <LocaleResource Name="StatusInProgress">
+                <Value>In Arbeit</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusInProgress.Hint">
+                <Value>Der Antrag ist noch nicht eingegangen.</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusInPreliminaryInquiry">                
+                <Value>In Voranfrage</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusInPreliminaryInquiry.Hint">
+                <Value>Der Antrag wurde versendet und wird geprüft.</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusDeclined">
+                <Value>Abgelehnt</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusDeclined.Hint">
+                <Value>Der Antrag ist eingegangen und wurde bei abschließender Prüfung abgelehnt.</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusApproved">
+                <Value>Genehmigt</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusApproved.Hint">
+                <Value>Der Antrag ist eingegangen und wurde final genehmigt.</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusDeferred">
+                <Value>Zurückgestellt</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusDeferred.Hint">
+                <Value>Die vom Kunden eingereichten Unterlagen sind unvollständig. Weitere Dokumente wurden seitens Santander Consumer Bank angefordert.</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusCanceled">
+                <Value>Storniert</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusCanceled.Hint">
+                <Value>Der Antrag wurde storniert.</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusRejectedAutomatically">
+                <Value>Abgelehnt maschinell</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusRejectedAutomatically.Hint">
+                <Value>Der Antrag wurde systemseitig bei Neuantragsstellung abgelehnt.</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusAccountOpened">
+                <Value>Konto eröffnet</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusAccountOpened.Hint">
+                <Value>Der Antrag wurde aktiviert. Die Auszahlung an den Händler erfolgt.</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusPreliminarilyApproved">
+                <Value>Vorläufig genehmigt</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusPreliminarilyApproved.Hint">
+                <Value>Der Antrag wurde vorläufig genehmigt. Vertragsunterlagen des Kunden sind noch nicht eingegangen.</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusCcpPresent">
+                <Value>ComfortCard plus vorhanden</Value>
+            </LocaleResource>
+            <LocaleResource Name="StatusCcpPresent.Hint">
+                <Value>Eine weitere Karte kann nicht beantragt werden. Dem Kunden wird angeboten, die Finanzierung in einen normalen Ratenkauf abzuändern.</Value>
+            </LocaleResource>
+
+            <LocaleResource Name="FinancingCalculator">
+                <Value>Finanzierungsrechner</Value>
+            </LocaleResource>
+            <LocaleResource Name="DisplayCalculatorOnProductPage">
+                <Value>Auf Produktdetailseite anzeigen</Value>
+            </LocaleResource>
+            <LocaleResource Name="DisplayCalculatorOnProductPage.Hint">
+                <Value>Legt fest, ob der Finanzierungsrechner auf der Produktdetailseite angezeigt wird.</Value>
+            </LocaleResource>
+            <LocaleResource Name="DisplayCalculatorInLists">
+                <Value>In Produktlisten anzeigen</Value>
+            </LocaleResource>
+            <LocaleResource Name="DisplayCalculatorInLists.Hint">
+                <Value>Legt fest, ob der Finanzierungsrechner in Produktlisten angezeigt wird.</Value>
+            </LocaleResource>
+            <LocaleResource Name="CalculatorInfoUrl">
+                <Value>URL zu weiteren Informationen</Value>
+            </LocaleResource>
+            <LocaleResource Name="CalculatorInfoUrl.Hint">
+                <Value>Legt eine optionale URL zu weiteren Informationen fest.</Value>
+            </LocaleResource>
+            <LocaleResource Name="CalculatorMinAmount">
+                <Value>Mindestpreis</Value>
+            </LocaleResource>
+            <LocaleResource Name="CalculatorMinAmount.Hint">
+                <Value>Legt einen Mindestpreis fest, ab dem der Finanzierungsrechner angezeigt werden soll.</Value>
+            </LocaleResource>
+            <LocaleResource Name="CalculatorInterests">
+                <Value>Laufzeiten und Zinsen</Value>
+            </LocaleResource>
+            <LocaleResource Name="CalculatorInterests.Hint">
+                <Value>Legt die Zinsen und Zinsfaktoren pro Laufzeit fest.</Value>
+            </LocaleResource>
+            <LocaleResource Name="CalculatorDefaultTerm">
+                <Value>Standardlaufzeit</Value>
+            </LocaleResource>
+            <LocaleResource Name="CalculatorDefaultTerm.Hint">
+                <Value>Legt eine optionale Standardlaufzeit fest. Über sie wird die Beispielfinanzierung auf der Produktdetailseite berechnet.</Value>
+            </LocaleResource>
+            <LocaleResource Name="CalculatorInterestsInstruction">
+                <Value>
+                    <![CDATA[<div>Tragen Sie pro Laufzeit eine Zeile mit folgenden, Semikolon getrennten Werten ein. Verwenden Sie einen Punkt als Dezimaltrennzeichen.</div>
+<ul>
+<li>Laufzeit in Monaten.</li>
+<li>Zinssatz.</li>
+<li>Berechnungsfaktor.</li>
+</ul>
+<div>Beispiel: <code>36;11.9;0.032882</code></div>]]>
+                </Value>
+            </LocaleResource>
+            <LocaleResource Name="ProductDetailsTitle">
+                <Value>Finanzierung gewünscht? Monatliche Mindestrate bei z.B. {0} Monaten ab {1}.</Value>
+            </LocaleResource>
+            <LocaleResource Name="ProductDetailsDescription">
+                <Value>Finanzieren Sie Ihren Einkauf mit der Santander Bank. Ein Finanzierungsbeispiel für dieses Produkt erhalten Sie durch Klick auf den nachfolgenden Button.</Value>
+            </LocaleResource>
+            <LocaleResource Name="ProductDetailsButton">
+                <Value>Finanzierungsberechnung</Value>
+            </LocaleResource>
+            <LocaleResource Name="FinancingValue">
+                <Value>Finanzierungswert</Value>
+            </LocaleResource>
+            <LocaleResource Name="CalculatorInfoUrlDescription">
+                <Value>
+                    <![CDATA[Mehr Informationen zum Ablauf der Finanzierung finden Sie <a href="{0}" class="santander-further-info-link" onclick="navigate(this);">hier</a>.]]>
+                </Value>
+            </LocaleResource>
+            <LocaleResource Name="ProductListTitle">
+                <Value><![CDATA[<div class="santander-financing text-muted mt-1 small">ab {0} mtl. <a href="javascript:void(0)" rel="nofollow" class="santander-calculator-button" data-price="{1}">finanzieren</a>.</div>]]></Value>
+            </LocaleResource>
+            <LocaleResource Name="InvalidFinancingValue">
+                <Value>Bitte geben Sie einen gültigen Finanzierungswert ein!</Value>
+            </LocaleResource>
+            <LocaleResource Name="Term">
+                <Value>Laufzeit</Value>
+            </LocaleResource>
+            <LocaleResource Name="Months">
+                <Value>{0} Monate</Value>
+            </LocaleResource>
+            <LocaleResource Name="FinancingDetails">
+                <Value>Finanzierungsdetails</Value>
+            </LocaleResource>
+            <LocaleResource Name="NetLoanAmount">
+                <Value>Nettodarlehensbetrag</Value>
+            </LocaleResource>
+            <LocaleResource Name="Instalments">
+                <Value>Raten à</Value>
+            </LocaleResource>
+            <LocaleResource Name="FixedDebitInterestRate">
+                <Value>Fester Sollzinssatz (p.a.)</Value>
+            </LocaleResource>
+            <LocaleResource Name="AnnualPercentageChargeRate">
+                <Value>Effektiver Jahreszins</Value>
+            </LocaleResource>
+            <LocaleResource Name="CalculatorDisclaimer">
+                <Value>
+                    <![CDATA[*Die vorstehenden Angaben stellen zugleich das repräsentative Beispiel gemäß § 6a Abs. 4 PAngV dar. Bonität vorausgesetzt.
+Dies ist ein Berechnungsbeispiel nach Ihren Angaben. Andere Finanzierungswünsche sind möglich. Ein konkretes Angebot erhalten Sie bei Stellung des Finanzierungsantrages.
+<br />Ein Angebot der Santander Consumer Bank AG, Santander-Platz 1, 41061 Mönchengladbach.
+<br /><br /><b>Repräsentatives 2/3 Beispiel:
+<br /></b>Nettodarlehensbetrag von € 1.000,- , effektiver Jahreszins von 9,9 %; fester Sollzinssatz 9,48 % p.a.; Laufzeit 12 Monate, 12 monatl. Raten à € 87,67 Gesamtbetrag € 1.052,04.]]>
+                </Value>
+            </LocaleResource>
+        </Children>
+    </LocaleResource>
+
+    <LocaleResource Name="Plugins.SmartStore.Santander.PurchaseOnAccount" AppendRootKey="false">
+        <Children>
+            <LocaleResource Name="PaymentMethodDescription">
+                <Value>
+                    <![CDATA[<div><img src="{0}"><div class="muted mt-2">Jetzt kaufen und innerhalb von 30 Tagen bezahlen.</div></div>]]>
+                </Value>
+            </LocaleResource>
+        </Children>
+    </LocaleResource>
+    <LocaleResource Name="Plugins.SmartStore.Santander.InstalmentPurchase" AppendRootKey="false">
+        <Children>
+            <LocaleResource Name="PaymentMethodDescription">
+                <Value>
+                    <![CDATA[<div><img src="{0}"><div class="muted mt-2">Jetzt kaufen und bequem in Raten bezahlen.</div></div>]]>
+                </Value>
+            </LocaleResource>
+            <LocaleResource Name="PreContractualInformationDownload">
+                <Value>Bitte hier die vorvertraglichen Informationen zum Ratenkauf abrufen.</Value>
+            </LocaleResource>
+        </Children>
+    </LocaleResource>
+</Language>

@@ -1,0 +1,68 @@
+﻿@using SmartStore.Santander;
+@using SmartStore.Web.Models.Checkout;
+@{
+	Layout = "_Checkout";
+	Html.AddTitleParts(T("PageTitle.Checkout").Text);
+    Html.AddBodyCssClass("no-offcanvas-cart");
+}
+
+@section orderProgress
+{
+    @{ Html.RenderAction("CheckoutProgress", "Checkout", new { step = CheckoutProgressStep.Payment, area = "" }); }
+}
+
+<div class="page payment-method-page">
+    <div class="page-body checkout-data">
+		<div class="santander-financing-container mb-4">
+            <iframe id="SantanderFinancingFrame" src="@((string)ViewBag.WebQuickUrl)" frameBorder="0" scrolling="auto" class="santander-financing-frame w-100" style="min-height: 800px;"></iframe>
+		</div>
+
+        <div class="buttons">
+            <a id="SantanderFinancingBackButton" class="btn btn-secondary btn-lg" href="@Url.Action("PaymentMethod", "Checkout", new { area = "" })">
+                <i class="fa fa-angle-left"></i>
+                <span>@T("Common.Back")</span>
+            </a>
+
+            <a id="SantanderFinancingNextButton" class="btn btn-warning btn-lg" href="javascript:void(0)">
+                <span>@T("Checkout.NextButton")</span>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+
+		// Check application state.
+        $('#SantanderFinancingNextButton').click(function (e) {
+            var self = $(this);
+            self.addClass('disabled');
+            self.find('.fa-angle-right')
+				.removeClass('fa-angle-right')
+				.addClass('fa-spinner fa-spin');
+
+		    $({}).doAjax({
+			    type: 'GET',
+                url: '@Url.Action("CheckApplicationState", "Financing", new { area = SantanderPlugin.SystemName })',
+			    callbackSuccess: function (response) {
+                    if (response.isNotCompleted) {
+                        displayNotification(response.message, response.messageType);
+                    }
+                    else if (!response.hasPositiveState) {
+                        window.location = '@Url.Action("PaymentMethod", "Checkout", new { area = "" })';
+                    }
+                    else {
+                        window.location = '@Url.Action("Confirm", "Checkout", new { area = "" })';
+                    }
+                },
+				callbackComplete: function () {
+                    self.removeClass('disabled');
+                    self.find('.fa-spinner')
+				        .removeClass('fa-spinner fa-spin')
+				        .addClass('fa-angle-right');
+				}
+		    });
+		});
+
+	});
+</script>

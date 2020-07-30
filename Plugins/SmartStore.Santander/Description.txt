@@ -1,0 +1,11 @@
+﻿FriendlyName: Santander
+Description: Provides the Santander payment methods.
+SystemName: SmartStore.Santander
+Group: Payment
+Version: 3.2.2
+MinAppVersion: 3.2.2
+Author: SmartStore AG
+DisplayOrder: 1
+FileName: SmartStore.Santander.dll
+ResourceRootKey: Plugins.SmartStore.Santander
+Url: http://community.smartstore.com/index.php?/files/file/136-santander-payment-solutions/
